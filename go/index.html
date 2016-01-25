@@ -1,0 +1,240 @@
+<html>
+<head>
+	<title>Insta-Type</title>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800italic,800' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+	<!-- <link rel="stylesheet" type="text/css" href="slick/slick.css"/> -->
+	<!-- // Add the new slick-theme.css if you want the default styling -->
+</head>
+<body id="active2">
+	<div class="loader" title="1" id="loading">
+	  <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	     width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+	  <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+	    <animateTransform attributeType="xml"
+	      attributeName="transform"
+	      type="rotate"
+	      from="0 25 25"
+	      to="360 25 25"
+	      dur="0.6s"
+	      repeatCount="indefinite"/>
+	    </path>
+	  </svg>
+	</div>
+
+	<div id="response" style="display: none;">
+		<div id="small_header" style="float: right; padding: 10px 20px; font-family: 'BlackJack', sans-serif; color: #710101; text-shadow: 1px 1px #C7C7C7; font-size: 16px; margin-bottom: 10px;">Insta-Type</div>
+	<div id="header" style="padding: 10px 20px 0 20px;">
+		<h2>Isabella's Year</h2>
+	</div>
+<div id="container2">
+	<div id="container1">
+		<div id="col1">
+			<!-- Column one start -->
+			<div style="position: relative">
+				<img id="happiest_img" src="https://scontent.cdninstagram.com/hphotos-xpf1/t51.2885-15/e15/12555952_237678359897616_2109914429_n.jpg" />
+				<div style="text-transform: uppercase; font-size: 12px; font-weight:700; position: absolute; bottom: 20px; z-index: 1000; background-color: rgba(0, 0, 0, 0.66); left: 30%; width: 70%; padding: 5px 0 5px 10px; color: white;"> your happiest picture </div>
+			</div>
+			<span id="story" style="display: block; padding-left: 30%; margin-bottom: 50px;">This year, you experienced more <span class="keywords">happiness</span> than sadness.
+			You had an overwhemingly <span class="keywords">positive</span> year.
+			You leaned heavily towards your <span class="keywords">senses</span>, <span class="keywords">feelings</span>, and <span class="keywords">perceptions</span>.</span>
+			<!-- Column one end -->
+		</div>
+		<div id="col2">
+			<!-- Column two start -->
+			<h6>You are Myers-Briggs type:</h6>
+			<h4 id="mb_type">
+				<span>I</span>
+				<span style='font-size: 12px; letter-spacing: 0px; display: inline; margin-left: -25px; margin-right: 20px; color: #9A9A9A;'>
+					(50%)
+				</span>
+				<span>S</span>
+				<span style='font-size: 12px; letter-spacing: 0px; display: inline; margin-left: -25px; margin-right: 20px; color: #9A9A9A;'>
+					(50%)
+				</span>
+				<span>T</span>
+				<span style='font-size: 12px; letter-spacing: 0px; display: inline; margin-left: -25px; margin-right: 20px; color: #9A9A9A;'>
+					(50%)
+				</span>
+				<span>J</span>
+				<span style='font-size: 12px; letter-spacing: 0px; display: inline; margin-left: -25px; margin-right: 20px; color: #9A9A9A;'>
+					(50%)
+				</span>
+			</h4>
+			<div class="explanation" id="first">
+				<span class="keywords">Introversion:</span> The need to think things through.<br/>
+				<span class="stress">keywords: shy, reserved, reflective</span>
+			</div>
+			<div class="explanation" id="second">
+				<span class="keywords">Sensing:</span> Trusts the established and the tried and true.<br/>
+				<span class="stress">keywords: facts, details, data collection</span>
+			</div>
+			<div class="explanation" id="third">
+				<span class="keywords">Thinking:</span> Uses the logical choice.<br/>
+				<span class="stress">keywords: rational, black and white, tough-minded</span>
+			</div>
+			<div class="explanation" id="fourth">
+				<span class="keywords">Judging:</span> Loves routine and to-do lists.<br/>
+				<span class="stress">keywords: scheduled, structured, organized</span>
+			</div>
+
+			<div style="font-size: 14px; font-weight: 700; text-transform: uppercase; margin-top: 50px; color: grey;">The social media craze</div>
+			<div style="border-left: 3px solid lightgrey; padding-left: 10px;">
+				For ESFP personalities, life is a never-ending party. ESFPs love being in the center of attention and enjoying even the simplest things - their fun and impulsive nature is usually very attractive to other people. People with this personality type never run out of ideas and their curiosity is insatiable - they will always be among the first to try something new and exciting.
+			</div>
+			<!-- Column two end -->
+		</div>
+	</div>
+</div>
+<div id="footer">
+
+</div>
+</div>
+
+</body>
+
+<script>
+	var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+	};
+	console.log('halp');
+	$.ajax({
+	  url: "http://instatype.me/handleauth/?code=" + getUrlParameter('code'),
+		type:"GET",
+	  dataType: "json"
+	}).done(function(data,textStatus,xhr){
+		console.log(xhr.responseText);
+		loadUI(xhr.responseText);
+
+	});
+
+	var loadUI = function(res) {
+		console.log("loading ui...");
+		$("#loading").hide();
+		$("#response").show();
+
+		console.log(typeof res);
+		if(typeof res)
+			res = JSON.parse(res);
+
+		var medias = res.medias;
+
+		var e = {"sensing": 0, "intuition": 0,"feeling": 0, "thinking": 0, "extraversion": 0, "introversion": 0, "judging": 0,"perceiving": 0,"happy": 0, "upset": 0, "negative": 0, "positive": 0};
+
+		// Get user's name
+		if(medias[0]) {
+			name = medias[0].user.full_name.split(" ")[0];
+
+			if(name.length > 0) $("#header").html("<h2>" + name + "\'s Year</h2>");
+			else if(medias[0].user.username.length > 0) $("#header").html("<h2>" + medias[0].user.username + "\'s Year</h2>");
+			else $("#header").html("<h2>Your Year</h2>");
+		}
+
+		// Go through all emotions
+		var emotions = res.emotions;
+		emotions.forEach(function(emotion) {
+			for(var key in emotion) {
+				e[key] += emotion[key];
+			}
+		});
+
+		// Average
+		for(var key in e) {
+			e[key] /= emotions.length;
+		}
+
+		console.log(e);
+
+		// Get user's type
+		var mb = {"type":""};
+		console.log(mb);
+
+		if(e.extraversion > e.introversion) {
+			mb.extraversion = Math.round(e.extraversion * 100);
+			mb.type += "<span>E</span>";
+			$("#first").html("<span class='keywords'>Extraversion:<span style='font-size: 12px; letter-spacing: 0px; display: inline; margin-left: 5px; color: #9A9A9A;'>(" + (mb.extraversion) + "%)</span></span> The need to talk things through.<br/><span class='stress'>keywords: outgoing, talkative, sociable</span>");
+		} else {
+			mb.introversion = Math.round(e.introversion * 100);
+			mb.type += "<span>I</span>";
+			$("#first").html("<span class='keywords'>Introversion:<span style='font-size: 12px; letter-spacing: 0px; display: inline; margin-left: 5px; color: #9A9A9A;'>(" + (mb.introversion) + "%)</span></span> The need to think things through.<br/><span class='stress'>keywords: shy, reserved, reflective</span>");
+		}
+
+		if(e.sensing > e.intuition) {
+			mb.sensing = Math.round(e.sensing * 100);
+			mb.type += "<span>S</span>";
+			$("#second").html("<span class='keywords'>Sensing:<span style='font-size: 12px; letter-spacing: 0px; display: inline; margin-left: 5px; color: #9A9A9A;'>(" + (mb.sensing) + "%)</span></span> Trusts the established and the tried and true.<br/><span class='stress'>keywords: facts, details, collection</span>");
+		} else {
+			mb.intuition = Math.round(e.intuition * 100);
+			mb.type += "<span>N</span>";
+			$("#second").html("<span class='keywords'>Intuition:<span style='font-size: 12px; letter-spacing: 0px; display: inline; margin-left: 5px; color: #9A9A9A;'>(" + (mb.intuition) + "%)</span></span> Can see the big picture and future possibilities.<br/><span class='stress'>keywords: brainstormer, big picture, theory</span>");
+		}
+
+		if(e.feeling > e.thinking) {
+			mb.feeling = Math.round(e.feeling * 100);
+			mb.type += "<span>F</span>";
+			$("#third").html("<span class='keywords'>Feeling:<span style='font-size: 12px; letter-spacing: 0px; display: inline; margin-left: 5px; color: #9A9A9A;'>(" + (mb.feeling) + "%)</span></span> Considers others before making decisions.<br/><span class='stress'>keywords: compassionate, personal, warm</span>");
+		} else {
+			mb.thinking = Math.round(e.thinking * 100);
+			mb.type += "<span>T</span>";
+			$("#third").html("<span class='keywords'>Thinking:<span style='font-size: 12px; letter-spacing: 0px; display: inline; margin-left: 5px; color: #9A9A9A;'>(" + (mb.thinking) + "%)</span></span> Uses the logical choice.<br/><span class='stress'>keywords: rational, black and white, tough-minded</span>");
+		}
+
+		if(e.perceiving > e.judging) {
+			mb.perceiving = Math.round(e.perceiving * 100);
+			mb.type += "<span>P</span>";
+			$("#fourth").html("<span class='keywords'>Perceiving:<span style='font-size: 12px; letter-spacing: 0px; display: inline; margin-left: 5px; color: #9A9A9A;'>(" + (mb.perceiving) + "%)</span></span> Enjoys surprises and changing plans.<br/><span class='stress'>keywords: go with the flow, unscheduled, flexible</span>");
+		} else {
+			mb.judging = Math.round(e.judging * 100);
+			mb.type += "<span>J</span>";
+			$("#fourth").html("<span class='keywords'>Judging:<span style='font-size: 12px; letter-spacing: 0px; display: inline; margin-left: 5px; color: #9A9A9A;'>(" + (mb.judging) + "%)</span></span> Loves routines and to-do lists.<br/><span class='stress'>keywords: scheduled, structured, organized</span>");
+		}
+
+		$("#mb_type").html(mb.type);
+
+		var par = "";
+		if(e.happy > e.upset) {
+			mb.happy = e.happy;
+			par += "This year, you experienced more <span class='keywords'>happiness</span> than sadness "
+		} else {
+			mb.upset = e.upset;
+			par += "This year, you experienced more <span class='keywords'>sadness</span> than happiness "
+		}
+
+		if(e.negative > e.positive) {
+			mb.negative = e.negative;
+			par += "and had an overwhemingly <span class='keywords'>negative</span> year."
+		} else {
+			mb.positive = e.positive;
+			par += "and had an overwhemingly <span class='keywords'>positive</span> year!"
+		}
+
+		console.log(par);
+
+		$("#story").html(par);
+
+		// Get happiest image
+		// var index = res.happiest;
+		var index = res.happiest;
+		var url = medias[index].images.standard_resolution.url;
+		url = url.replace("/h/", "\\");
+		console.log(url);
+
+		$("#happiest_img").attr("src", url);
+
+		console.log(e);
+	};
+</script>
+</html>

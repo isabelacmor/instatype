@@ -1,0 +1,167 @@
+@font-face {
+    font-family: 'BlackJack';
+    src: url('../font/black_jack-webfont.eot');
+    src: url('../font/black_jack-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/black_jack-webfont.woff') format('woff'),
+         url('../font/black_jack-webfont.ttf') format('truetype'),
+         url('../font/black_jack-webfont.svg#blackjackregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@media only screen and (max-width: 1075px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+body {
+	margin:0;
+	padding:0;
+  background: url("../img/symphony.png") repeat;
+  font-family: 'Open Sans', sans-serif;
+}
+#active2 #tab2,
+#active3 #tab3,
+#active4 #tab4,
+#active5 #tab5 {
+	font-weight:bold;
+	text-decoration:none;
+	color:#000;
+}
+#footer {
+	clear:both;
+	float:left;
+	width:100%;
+  background-color: red;
+}
+#footer p {
+	margin-left:2%;
+	padding-right:2%;
+}
+
+/* Start of Column CSS */
+#container2 {
+	clear:left;
+	float:left;
+	width:100%;
+	overflow:hidden;
+}
+#container1 {
+	float:left;
+	width:100%;
+	position:relative;
+	right:50%;
+}
+#col1 {
+	float:left;
+	width:46%;
+	position:relative;
+	left:52%;
+	overflow:hidden;
+}
+#col2 {
+	float:left;
+	width:40%;
+	position:relative;
+	left:60%;
+	overflow:hidden;
+}
+
+#header {
+  padding: 50px 20px 0 20px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+#center {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 30vh;
+}
+
+#header h2, #center h2 {
+  font-family: 'BlackJack', sans-serif;
+  color: #710101;
+  text-shadow: 1px 1px #C7C7C7;
+  font-size: 70px;
+  margin-bottom: 10px;
+}
+
+#center .mainPage {
+  text-align: center;
+}
+
+#about {
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 100px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+#col1 img {
+  width: 70%;
+  padding-left: 30%;
+  margin-bottom: 20px;
+}
+
+#col2 h6 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 300;
+}
+
+#col2 h4 {
+  margin: 0;
+  font-size: 6vw;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+.stress {
+  font-weight: 200;
+  font-style: italic;
+}
+
+.keywords {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.explanation {
+  margin-bottom: 10px;
+}
+
+#login {
+  background-color: #710101;
+  padding: 20px;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 1px solid grey;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #710101;
+}
+
+.loader{
+  height: 100px;
+  text-align: center;
+  padding: 1em;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 50vh;
+}
