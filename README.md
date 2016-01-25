@@ -10,3 +10,8 @@ Planned features:
 ---
 1. Integration with more social media networks (Facebook, Twitter, Pinterest, etc)
 1. More granular data visualizations for specific trends throughout the year.
+
+
+Privacy policy:
+---
+We do not store or collect any user data, including images, vides, and text. Data extrapolated from such user data can be collected for research purposes. We will not give or sell any data from our system to anyone.
