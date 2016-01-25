@@ -11,6 +11,13 @@ Planned features:
 1. Integration with more social media networks (Facebook, Twitter, Pinterest, etc)
 1. More granular data visualizations for specific trends throughout the year.
 
+Awards:
+---
+![awards](https://scontent.ftpa1-1.fna.fbcdn.net/hphotos-xft1/n31.0-8/12622530_10154447817139186_2975638583607506390_o.jpg)
+4th Place Overall Winners of SwampHacks 2016 (out of 76 submissions), Clarifai API Prize Winners of SwampHacks 2016, & Nielsen Best Measurement Hack of SwampHacks 2016. 
+
+Check it out and like the project on DevPost: http://devpost.com/software/instatype
+
 
 Privacy policy:
 ---
