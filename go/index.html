@@ -117,7 +117,7 @@
 	// 	user = "&user=" + un;
 	// }
 	$.ajax({
-	  url: "http://localhost:3000/handleauth/?code=" + getUrlParameter('code'),
+	  url: "https://classifi.me/handleauth/?code=" + getUrlParameter('code'),
 		type:"GET",
 	  dataType: "json"
 	}).done(function(data,textStatus,xhr){
@@ -131,7 +131,7 @@
 		// 	user = "?user=" + un;
 		// }
 		if(res.error_type == 'OAuthException'){
-			window.location.href='http://localhost:3000/authorize_user';
+			window.location.href='https://classifi.me/authorize_user';
 		}else{
 			loadUI(res);
 		}

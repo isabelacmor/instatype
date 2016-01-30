@@ -1,4 +1,4 @@
-var TOKENS = require('./tokens.js');
+var TOKENS = require('./secret/tokens.js');
 var instagram = require('instagram-node');
 var api = instagram.instagram();
 
@@ -6,10 +6,23 @@ var api = instagram.instagram();
 api.use({ client_id: TOKENS.insta.client_id,
          client_secret: TOKENS.insta.client_secret });
 
+var read = require('fs').readFileSync;
+var https = require('https');
 var http = require('http');
 var rp = require('request-promise');
 var express = require('express');
 var app = express();
+
+var httpsOptions = {
+        key: read('secret/private-key.pem', 'utf8'),
+        cert: read('secret/classifi_me.crt', 'utf8'),
+        ca: [
+            read('secret/bundle1.pem', 'utf8'),
+            read('secret/bundle2.pem', 'utf8')
+        ]
+    };
+
+app.all('*', ensureSecure); // at top of routing calls
 
 app.use('/', express.static('static'));
 
@@ -18,7 +31,7 @@ app.use('/go', express.static('go'));
 var Clarifai = require('./clarifai_node.js');
 Clarifai.initAPI(TOKENS.clarifai.client_id, TOKENS.clarifai.client_secret );
 
-var redirect_uri = 'http://localhost:3000/go';
+var redirect_uri = 'https://classifi.me/go';
 
 exports.authorize_user = function(req, res) {
   // var user = "";
@@ -142,13 +155,26 @@ exports.handleauth = function(req, res) {
   });
 };
 
+function ensureSecure(req, res, next){
+  if(req.secure){
+    // OK, continue
+    return next();
+  };
+  res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
+};
+
 // This is where you would initially send users to authorize
 app.get('/authorize_user', exports.authorize_user);
 // This is your redirect URI
 app.get('/handleauth', exports.handleauth);
-app.set('port', 3000);
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+app.set('HTTPPort', 3000);
+app.set('HTTPSPort',4000);
+http.createServer(app).listen(app.get('HTTPPort'), function(){
+  console.log("HTTP listening on port " + app.get('HTTPPort'));
+});
+
+https.createServer(httpsOptions,app).listen(app.get('HTTPSPort'), function(){
+  console.log("HTTPS listening on port " + app.get('HTTPSPort'));
 });
 
 var getTagsByURL = function(url) {
