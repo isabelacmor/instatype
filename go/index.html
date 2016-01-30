@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Insta-Type</title>
+	<title>Classifi.me</title>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800italic,800' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -25,7 +25,7 @@
 	</div>
 
 	<div id="response" style="display: none;">
-		<div id="small_header" style="float: right; padding: 10px 20px; font-family: 'BlackJack', sans-serif; color: #710101; text-shadow: 1px 1px #C7C7C7; font-size: 16px; margin-bottom: 10px;">Insta-Type</div>
+		<div id="small_header" style="float: right; padding: 10px 20px; font-family: 'BlackJack', sans-serif; color: #710101; text-shadow: 1px 1px #C7C7C7; font-size: 16px; margin-bottom: 10px;">Classifi.me</div>
 	<div id="header" style="padding: 10px 20px 0 20px;">
 		<h2>Isabella's Year</h2>
 	</div>
@@ -96,7 +96,7 @@
 </body>
 
 <script>
-	var getUrlParameter = function getUrlParameter(sParam) {
+	function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
         sParameterName,
@@ -111,13 +111,30 @@
     }
 	};
 	console.log('halp');
+	// var un = getUrlParameter('user');
+	// var user = "";
+	// if(un){
+	// 	user = "&user=" + un;
+	// }
 	$.ajax({
-	  url: "http://instatype.me/handleauth/?code=" + getUrlParameter('code'),
+	  url: "https://classifi.me/handleauth/?code=" + getUrlParameter('code'),
 		type:"GET",
 	  dataType: "json"
 	}).done(function(data,textStatus,xhr){
 		console.log(xhr.responseText);
-		loadUI(xhr.responseText);
+		var res = xhr.responseText;
+
+		if(typeof res == "string"){
+			res = JSON.parse(res);
+		}
+		// if(un){
+		// 	user = "?user=" + un;
+		// }
+		if(res.error_type == 'OAuthException'){
+			window.location.href='https://classifi.me/authorize_user';
+		}else{
+			loadUI(res);
+		}
 
 	});
 
@@ -125,10 +142,6 @@
 		console.log("loading ui...");
 		$("#loading").hide();
 		$("#response").show();
-
-		console.log(typeof res);
-		if(typeof res)
-			res = JSON.parse(res);
 
 		var medias = res.medias;
 
