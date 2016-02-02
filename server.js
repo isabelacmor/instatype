@@ -59,6 +59,7 @@ exports.handleauth = function(req, res) {
 
       var date = new Date();
       var options = {
+	count: 100,
         max_timestamp: Date.now(),
         min_timestamp: new Date(new Date().setYear(new Date().getFullYear() + 1))
       }
@@ -66,7 +67,10 @@ exports.handleauth = function(req, res) {
 
       /* OPTIONS: { [count], [min_timestamp], [max_timestamp], [min_id], [max_id] }; */
       insta.user_media_recent(result.user.id, options, function(err, medias, pagination, remaining, limit) {
-
+	if(medias.length < 1){
+	  res.redirect("http://static.squarespace.com/static/527a4320e4b0536ab6ec1dc5/529652d1e4b008c3d65eef19/529652e5e4b008c3d65f03f2/1376449828000/tumblr_mqfampbfRs1ql5yr7o1_500.gif?format=original");
+	}
+	console.log("Num of pics: " + medias.length + " pagination: " + JSON.stringify(pagination)); 
         var urlArr = medias.map(function(media){
           if(media['videos']){
             return media['videos']['standard_resolution']['url'];
@@ -150,6 +154,9 @@ exports.handleauth = function(req, res) {
             // api.use({ client_id: '9ba26a3c029f4d918f5619a8eaafd80c',
             //          client_secret: '345ef7f5f4e043a2bbc55f2fae13b39a' });
           });
+        }).catch(function(error){
+	  console.log(error);
+	  res.redirect(req.get('referer'));
         });
       });
   });
@@ -182,9 +189,11 @@ var getTagsByURL = function(url) {
     Clarifai.tagURL( url, null, "", function(error, response){
         //console.log(JSON.stringify(response));
         // console.log(JSON.stringify(response));
-        if(error){
-          console.log(error);
+        if(error || !response){
+	  error = error ? error : "no response";          
+	  console.log(error);
           reject(error);
+	  return;
         }
         var list = response.results[0].result.tag.classes;
 
