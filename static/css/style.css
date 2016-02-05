@@ -150,12 +150,19 @@ body {
   width: 200px;
   margin: 0 auto;
   margin-top: 20px;
-  border: 1px solid grey;
   color: white;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 700;
   text-align: center;
+  transition: 0.5s ease-in;
+  box-shadow: 0px 0px 5px 1px #6D6B6B;
+  cursor: pointer;
+}
+
+#login:hover {
+  background-color: #A20404;
+  transition: 0.5s ease-in;
 }
 
 a {
