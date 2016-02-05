@@ -48,7 +48,7 @@ exports.handleauth = function(req, res) {
   // }
   api.authorize_user(req.query.code, redirect_uri, function(err, result) {
       if(err){
-        console.log(err);
+        console.log(" [Instagram] " + JSON.stringify(err));
         res.json(err);
         return;
       }
@@ -67,10 +67,13 @@ exports.handleauth = function(req, res) {
 
       /* OPTIONS: { [count], [min_timestamp], [max_timestamp], [min_id], [max_id] }; */
       insta.user_media_recent(result.user.id, options, function(err, medias, pagination, remaining, limit) {
+        if(err){
+          console.log(" [Instagram] " + JSON.stringify(err));
+        }
 	if(medias.length < 1){
 	  res.redirect("http://static.squarespace.com/static/527a4320e4b0536ab6ec1dc5/529652d1e4b008c3d65eef19/529652e5e4b008c3d65f03f2/1376449828000/tumblr_mqfampbfRs1ql5yr7o1_500.gif?format=original");
 	}
-	console.log("Num of pics: " + medias.length + " pagination: " + JSON.stringify(pagination)); 
+	console.log("Num of pics: " + medias.length + " pagination: " + JSON.stringify(pagination));
         var urlArr = medias.map(function(media){
           if(media['videos']){
             return media['videos']['standard_resolution']['url'];
@@ -155,7 +158,7 @@ exports.handleauth = function(req, res) {
             //          client_secret: '345ef7f5f4e043a2bbc55f2fae13b39a' });
           });
         }).catch(function(error){
-	  console.log(error);
+	  // console.log(" [Instagram] " + JSON.stringify(error));
 	  res.redirect(req.get('referer'));
         });
       });
@@ -190,8 +193,8 @@ var getTagsByURL = function(url) {
         //console.log(JSON.stringify(response));
         // console.log(JSON.stringify(response));
         if(error || !response){
-	  error = error ? error : "no response";          
-	  console.log(error);
+	  error = error ? JSON.stringify(error) : "no response";
+	  console.log(" [Clarifai] " + error);
           reject(error);
 	  return;
         }
@@ -223,7 +226,7 @@ var getSensingIntuition = function(text) {
     })
     .catch(function (err) {
         // Crawling failed...
-        console.log(err);
+        console.log(" [uClassify] " + JSON.stringify(err));
         reject(err);
     });
   });
@@ -242,7 +245,7 @@ var getThinkingFeeling = function(text) {
     })
     .catch(function (err) {
         // Crawling failed...
-        console.log(err);
+        console.log(" [uClassify] " + JSON.stringify(err));
         reject(err);
     });
   });
@@ -261,7 +264,7 @@ var getExtraIntro = function(text) {
     })
     .catch(function (err) {
         // Crawling failed...
-        console.log(err);
+        console.log(" [uClassify] " + JSON.stringify(err));
         reject(err);
     });
   });
@@ -280,7 +283,7 @@ var getJudgingPerceiving = function(text) {
     })
     .catch(function (err) {
         // Crawling failed...
-        console.log(err);
+        console.log(" [uClassify] " + JSON.stringify(err));
         reject(err);
     });
   });
@@ -299,7 +302,7 @@ var getMood = function(text) {
     })
     .catch(function (err) {
         // Crawling failed...
-        console.log(err);
+        console.log(" [uClassify] " + JSON.stringify(err));
         reject(err);
     });
   });
@@ -318,7 +321,7 @@ var getSentiment = function(text) {
     })
     .catch(function (err) {
         // Crawling failed...
-        console.log(err);
+        console.log(" [uClassify] " + JSON.stringify(err));
         reject(err);
     });
   });
