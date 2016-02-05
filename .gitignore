@@ -26,3 +26,5 @@ node_modules
 
 # Secret things
 secret
+
+.DS_Store
